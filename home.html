@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./assets/logo.png" type="image/x-icon">
+
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Payoo||Home</title>
+</head>
+<body class="min-h-screen max-w-md bg-base-300 mx-auto rounded-[15px]">
+    <header class="border-b-2 border-gray-300 sticky top-0 bg-base-200 z-50">
+        <section class="flex justify-between py-4 px-2 w-11/12 mx-auto">
+           <div class="left flex gap-3">
+                <div>
+                     <img class="w-[60px]" src="./assets/logo.png" alt="">
+                </div>
+                <div>
+                    <h2 class="text-2xl font-bold">$<span id="balance">4500</span></h2>
+                    <p class="text-neutral-600">Available Balance</p>
+                </div>
+
+           </div>
+           
+            <div class="right">
+                <a href="./index.html" class="btn btn-soft "><i class="fa-solid fa-arrow-right-from-bracket"></i> Log Out</a>
+            </div>
+        </section>
+
+        
+    </header>
+   
+    <!-- hero section -->
+
+    <section class="w-11/12 mx-auto mt-10">
+            <div>
+                <h1 class="text-2xl font-bold">Welcome to Pay<span class="text-primary">oo</span>  </h1>
+                <p class="text-[16px] text-neutral-600 mt-3">Enjoy easy and convenient financial services with us. Cashout charge is low and </p>
+            </div>
+        </section>
+
+
+        <!-- button section -->
+    <section class="w-11/12 mx-auto mt-10 grid grid-cols-2 md:grid-cols-3 gap-3">
+  <div>
+    <button onclick="selectOnly('add-money')" id="add-money-btn" class="btn btn-primary btn-soft flex-col py-4 min-h-[150px] rounded-[20px] text-[16px] gap-2 w-full ">
+      <img src="assets/opt-1.png" alt="Add Money icon">Add Money
+    </button>
+  </div>
+  <div>
+    <button onclick="selectOnly('cashOut')" id="cash-out-btn" class="btn btn-primary btn-soft flex-col py-4 min-h-[150px] rounded-[20px] text-[16px] gap-2 w-full">
+      <img src="assets/opt-2.png" alt="Cashout icon">Cashout
+    </button>
+  </div>
+  <div>
+    <button onclick="selectOnly('send-money')" class="btn btn-primary btn-soft flex-col py-4 min-h-[150px] rounded-[20px] text-[16px] gap-2 w-full">
+      <img src="assets/opt-3.png" alt="Transfer Money icon">Send Money
+    </button>
+  </div>
+  <div>
+    <button class="btn btn-primary btn-soft flex-col py-4 min-h-[150px] rounded-[20px] text-[16px] gap-2 w-full">
+      <img src="assets/opt-4.png" alt="Get Bonus icon">Get Bonus
+    </button>
+  </div>
+  <div>
+    <button class="btn btn-primary btn-soft flex-col py-4 min-h-[150px] rounded-[20px] text-[16px] gap-2 w-full">
+      <img src="assets/opt-5.png" alt="Pay Bill icon">Pay Bill
+    </button>
+  </div>
+  <div>
+    <button onclick="selectOnly('history')" class="btn btn-primary btn-soft flex-col py-4 min-h-[150px] rounded-[20px] text-[16px] gap-2 w-full">
+      <img src="assets/opt-6.png" alt="Transactions icon">Transactions
+    </button>
+  </div>
+</section>
+
+<!-- cashout section -->
+
+<section id="cashOut" class="w-11/12 mx-auto mt-10 pb-10  hidden" >
+    <h1 class="text-xl font-bold mt-5 ">Cash Out</h1>
+
+    <div class="card bg-base-100 w-full max-w-sm shrink-0 shadow mt-2 mx-auto rounded-[10px]">
+      <div class="card-body">
+        <fieldset class="fieldset">
+          <label class="label text-neutral font-bold">Agent Number</label>
+          <input id="agent-num" type="tel" class="input validator tabular-nums rounded-full w-full" required placeholder="Enter 11 Digit Number" 
+  pattern="[0-9]*" minlength="11" maxlength="11" title="Must be 11 digits" />
+<p class="validator-hint hidden">Must be 11 digits</p>
+<p class="validator-hint hidden">Required</p>
+
+<!-- amount -->
+            <label class="label text-neutral font-bold">Amount</label>
+          <input id="amount" type="number" class="input validator tabular-nums rounded-full w-full" required placeholder="Enter The Amount" 
+  pattern="[0-9]*" />
+  <p class="validator-hint hidden">Required</p>
+
+        
+            
+          <label class="label text-neutral font-bold">PIN</label>
+          <input id="cashOut-pin" type="password" class="input rounded-full w-full" placeholder="PIN" minlength="4" maxlength="4" />
+          
+          <button id="cashOut-btn" class="btn btn-neutral mt-4">Cah Out</button>
+        </fieldset>
+      </div>
+    </div>
+</section>
+
+
+
+<!-- send money section -->
+
+
+ <section  id="send-money" class="w-11/12 mx-auto mt-10 pb-10 hidden" >
+    <h1 class="text-xl font-bold mt-5 ">Send Money</h1>
+
+    <div class="card bg-base-100 w-full max-w-sm shrink-0 shadow mt-2 mx-auto rounded-[10px]">
+      <div class="card-body">
+        <fieldset class="fieldset">
+          <label class="label text-neutral font-bold">Use AC. Number</label>
+          <input id="user-num" type="tel" class="input validator tabular-nums rounded-full w-full" required placeholder="Enter 11 Digit Number" 
+  pattern="[0-9]*" minlength="11" maxlength="11" title="Must be 11 digits" />
+<p class="validator-hint hidden">Must be 11 digits</p>
+<p class="validator-hint hidden">Required</p>
+
+<!-- amount -->
+            <label class="label text-neutral font-bold">Amount</label>
+          <input id="sendAmount" type="number" class="input validator tabular-nums rounded-full w-full" required placeholder="Enter The Amount" 
+  pattern="[0-9]*" />
+  <p class="validator-hint hidden">Required</p>
+
+        
+            
+          <label class="label text-neutral font-bold">PIN</label>
+          <input id="send-money-pin" type="password" class="input rounded-full w-full" placeholder="PIN" minlength="4" maxlength="4" />
+          
+          <button id="send-money-btn" class="btn btn-neutral mt-4">Send Money</button>
+        </fieldset>
+      </div>
+    </div>
+</section>
+
+
+<!-- add money section -->
+<section id="add-money" class="w-11/12 mx-auto mt-10 pb-10 hidden" >
+    <h1 class="text-xl font-bold mt-5 ">Add Money</h1>
+
+    <div class="card bg-base-100 w-full max-w-sm shrink-0 shadow mt-2 mx-auto rounded-[10px]">
+      <div class="card-body">
+        <fieldset class="fieldset">
+          <!-- selct a bank -->
+          <label class="label text-neutral font-bold">Select A Bank</label>
+          <select id="select-bank" class="select select-accent rounded-full w-full">
+  <option selected disabled>Select a Bank</option>
+  <option>DBBL</option>
+  <option>IBBL</option>
+  <option>BRAC Bank</option>
+</select>
+
+          <!-- account number -->
+
+        <label class="label text-neutral font-bold">Account Number</label>
+          <input id="account-num" type="tel" class="input validator tabular-nums rounded-full w-full" required placeholder="Enter 11 Digit Number" 
+  pattern="[0-9]*" minlength="11" maxlength="11" title="Must be 11 digits" />
+<p class="validator-hint hidden">Must be 11 digits</p>
+<p class="validator-hint hidden">Required</p>
+
+           <!-- amount -->
+            <label class="label text-neutral font-bold">Amount</label>
+          <input id="add-amount" type="number" class="input validator tabular-nums rounded-full w-full" required placeholder="Enter The Amount" 
+  pattern="[0-9]*" />
+  <p class="validator-hint hidden">Required</p>
+
+        
+            <!-- pin  -->
+          <label class="label text-neutral font-bold">PIN</label>
+          <input id="addMoney-pin" type="password" class="input rounded-full w-full" placeholder="PIN" minlength="4" maxlength="4" />
+          
+          <button id="addMoney-btn" class="btn btn-neutral mt-4">Add Money</button>
+        </fieldset>
+      </div>
+    </div>
+</section>
+
+<!-- transaction section -->
+
+<section id="history" class="w-11/12 mx-auto mt-10 pb-10 hidden">
+  <h1 class="text-xl font-bold mt-5 ">Transactions</h1>
+    <div id="history-container">
+
+    </div>
+</section>
+
+<script src="./script/cashOut.js"></script>
+<script src="./script/addMoney.js"></script>
+<script src="./script/machine.js"></script>
+<script src="./script/sendMoney.js"></script>
+
+</body>
+</html>
