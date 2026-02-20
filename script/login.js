@@ -10,7 +10,7 @@ loginBtn.addEventListener('click',function(){
 
     if(newPin==='1234' && newNum==='12345678912'){
         alert('log in successfully');
-    window.location.assign('/home.html');
+    window.location.assign('home.html');
 
     }
    else{
